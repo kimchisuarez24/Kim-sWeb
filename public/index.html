@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimchi Suarez Portfolio - IT & Web Development</title>
+    <!-- This line links your CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- This line links the FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<!-- Your <body> code starts here -->
+<body>
+
+    <!-- Main Flexbox Container -->
+    <div class="portfolio-container">
+
+        <!-- Fixed Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img-container">
+                    <img src="pfp1.jpg" alt="Kimchi Suarez" class="profile-img">
+                </div>
+                <h2>Kimchi Suarez</h2>
+                <p class="profile-titles">Information Technology Student<br>Full-Stack Developer</p>
+            </div>
+
+            <div class="info-details">
+                <p><span>Residence:</span> Philippines</p>
+                <p><span>City:</span> Dagupan</p>
+                <p><span>Age:</span> 19</p>
+            </div>
+
+            <!-- Language Skills -->
+            <div class="skills-container languages" style="justify-content: center;">
+                <div class="skill-group">
+                    <div class="skill-dial" data-value="85">
+                        <span class="skill-percent">85%</span>
+                        <div class="dial-fill"></div>
+                    </div>
+                    <p>English</p>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="skills-container technical">
+                <div class="linear-skill">
+                    <p>html <span class="percent">90%</span></p>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="linear-skill">
+                    <p>CSS <span class="percent">75%</span></p>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="linear-skill">
+                    <p>JS <span class="percent">75%</span></p>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="linear-skill">
+                    <p>Python <span class="percent">75%</span></p>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="linear-skill">
+                    <p>C++ <span class="percent">75%</span></p>
+                    <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <ul>
+                    <li><i class="fas fa-check"></i> Eager to Learn</li>
+                    <li><i class="fas fa-check"></i> Appoachable</li>
+                    <li><i class="fas fa-check"></i> Able to work under pressure</li>
+                </ul>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1H1RiXF2vG/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Hero Header Section (Background applied via CSS) -->
+            <header class="hero-header">
+                <div class="hero-left">
+                    <div class="header-dark-panel">
+                        <h1>Discover my<br>Web and Application!</h1>
+                        <p class="code-line"><code>&lt; I build Websites and Applications   . /&gt;</code></p>
+                        
+                        <!-- Contact Button & Sliding Panel -->
+                        <div class="contact-wrapper">
+                            <button class="contact-btn" id="contactBtn">CONTACT ME</button>
+                            <div class="contact-info" id="contactInfo">
+                                <p><i class="fas fa-phone"></i> 09383699609</p>
+                                <p><i class="fas fa-envelope"></i> kimchisuarez24@gmail.com</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <!-- Cutout Profile Image -->
+                    <!--img src="cutout.jpg" alt="Profile Cover" class="hero-img"-->
+                </div>
+            </header>
+
+            <!-- Statistics Grid -->
+            <section class="stats-grid">
+                <div class="stat-card"><h3>1</h3> <p>Years Experience</p></div>
+                <div class="stat-card"><h3>1</h3> <p>Completed Projects</p></div>
+                <div class="stat-card"><h3>0</h3> <p>Happy Customers</p></div>
+                <div class="stat-card"><h3>2</h3> <p>Honors and Awards</p></div>
+            </section>
+
+            <!-- Services Grid -->
+            <section class="services-section">
+                <h2>My Focus Areas</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-code card-icon"></i>
+                        <h3>Web Development</h3>
+                        <p>Building responsive, interactive interfaces using HTML, CSS, and JS with robust Node.js backends.</p>
+                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+            <i class="fas fa-laptop-code card-icon"></i>
+            <h3>Software Dev</h3>
+            <p>Writing structural logic, modular programs, and efficient computing solutions in C++ and Python.</p>
+            <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-microchip card-icon"></i>
+            <h3>Hardware Diagnostics</h3>
+            <p>Troubleshooting system boards, testing registry settings, and flashing complex BIOS firmware.</p>
+            <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-gamepad card-icon"></i>
+            <h3>Game Design</h3>
+            <p>Conceptualizing simulator mechanics and interactive kinetic environments within Roblox Studio.</p>
+            <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript for the sliding animation
+        document.getElementById('contactBtn').addEventListener('click', () => {
+            const infoPanel = document.getElementById('contactInfo');
+            infoPanel.classList.toggle('show');
+        });
+    </script>
+</body>
