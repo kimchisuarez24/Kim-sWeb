@@ -483,3 +483,70 @@ h2, h3, h1 {
     color: #8c8c8e;
     cursor: pointer;
 }
+
+/* =========================================
+   Mobile Responsiveness (Media Queries)
+   ========================================= */
+
+@media screen and (max-width: 992px) {
+    /* Un-fix the layout and stack vertically */
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    /* Change sidebar from a fixed left column to a top header area */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #1f1f24;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Splits sidebar content into two columns on tablets */
+        gap: 20px;
+    }
+
+    /* Let the main content fill the whole screen width */
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    /* Stack the Hero Header text and image */
+    .hero-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left, .hero-right {
+        width: 100%;
+        padding: 30px 20px;
+        justify-content: center;
+    }
+
+    .header-dark-panel h1 {
+        font-size: 32px; /* Slightly smaller text for mobile */
+    }
+
+    .contact-info p {
+        justify-content: center; /* Centers the dropdown text on mobile */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Further adjustments for smaller phone screens */
+    .sidebar {
+        grid-template-columns: 1fr; /* Stacks all sidebar content into a single column */
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid for stats instead of 4 in a row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr; /* Single column stats for very small phones */
+    }
+}
