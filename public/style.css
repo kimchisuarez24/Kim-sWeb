@@ -15,7 +15,81 @@ body {
 h1, h2, h3 {
     color: #ffffff;
 }
+/* =========================================
+   Animated Cyber Grid Background
+   ========================================= */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -2; /* Sits completely in the back */
+    background-color: #050505; /* Deep black base */
+    background-size: 40px 40px; /* Size of the grid squares */
+    
+    /* Draws the grid lines */
+    background-image: 
+        linear-gradient(to right, rgba(139, 13, 26, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 13, 26, 0.15) 1px, transparent 1px);
+        
+    /* The sliding animation */
+    animation: panGrid 15s linear infinite;
+}
 
+@keyframes panGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+}
+
+/* Make sure bg-orbs has a transparent background so the grid shows through */
+.bg-orbs {
+    background: transparent; 
+}
+/* =========================================
+   Ultra Cool Animated Background
+   ========================================= */
+.bg-orbs {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1; 
+    overflow: hidden;
+    background: #050505; /* Deepest black */
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+.orb-1 { width: 350px; height: 350px; background: #8B0D1A; top: 10%; left: 15%; animation-delay: 0s; }
+.orb-2 { width: 450px; height: 450px; background: #ff1a2b; bottom: 5%; right: 10%; animation-delay: -3s; }
+.orb-3 { width: 250px; height: 250px; background: #330000; top: 40%; left: 60%; animation-delay: -6s; }
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -60px) scale(1.2); }
+}
+
+/* Glassmorphism Overrides (Semi-transparent panels) */
+body { background: transparent !important; }
+html { background: #050505; /* Sets the absolute bottom color */ }
+
+.main-content, .portfolio-container { 
+    background: transparent !important; 
+}
+
+.sidebar {
+    background-color: rgba(17, 17, 17, 0.6) !important;
+    backdrop-filter: blur(15px); 
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero-header {
+    background: rgba(17, 17, 17, 0.6) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
 /* Layout Container */
 .portfolio-container {
     display: flex;
@@ -348,24 +422,63 @@ h1, h2, h3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
+    align-items: start; /* This prevents the cards from stretching together */
 }
 
+/* Animated Service Cards */
 .service-card {
-    background: #121214;
+    background: rgba(17, 17, 17, 0.6);
+    backdrop-filter: blur(10px);
     padding: 35px 30px;
     border-radius: 4px;
-    border: 1px solid #1f1f24;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
     position: relative;
-    z-index: 1;
+    overflow: hidden;
 }
 
+/* Forces the text to stay on top of the animation */
+.service-card > * { position: relative; z-index: 2; }
+
+/* The Spinning Neon Gradient */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: conic-gradient(transparent, transparent, transparent, #ff1a2b);
+    animation: spin 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+/* The dark inner cutout that makes it look like a border */
+.service-card::after {
+    content: '';
+    position: absolute;
+    inset: 2px; /* Thickness of the glowing line */
+    background: rgba(17, 17, 17, 0.95);
+    border-radius: inherit;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Trigger the circling animation and slight lift on hover */
 .service-card:hover {
     transform: translateY(-5px);
-    border-color: #ff1a2b; 
-    /* Red neon glow and under-light effect */
-    box-shadow: 0 0 20px rgba(139, 13, 26, 0.3),
-                0 15px 35px -10px rgba(139, 13, 26, 0.9);
+    box-shadow: 0 15px 35px -10px rgba(139, 13, 26, 0.6);
+    border-color: transparent; /* Hides default border so animation shows */
+}
+
+.service-card:hover::before,
+.service-card:hover::after {
+    opacity: 1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .service-card .card-icon {
@@ -798,16 +911,41 @@ h1, h2, h3 {
     line-height: 1.7;
 }
 
+/* Expanding Projects Section */
 .order-link {
-    color: #F5F2ED;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 1px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: gap 0.3s ease;
+    cursor: pointer;
+}
+
+.order-link i {
+    transition: transform 0.3s ease;
+}
+
+/* Rotates the arrow down when opened */
+.order-link.open i {
+    transform: rotate(90deg);
+}
+
+.project-list {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    margin-top: 0;
+}
+
+.project-list.show {
+    max-height: 100px;
+    opacity: 1;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #1a1a1a; 
+}
+
+.empty-msg {
+    font-size: 13px;
+    color: #8B0D1A; /* Demon Mode Red */
+    font-style: italic;
+    text-shadow: 0 0 8px rgba(255, 26, 43, 0.4);
 }
 
 .service-card:hover .order-link {
@@ -970,9 +1108,52 @@ body.angel-mode .service-card:hover {
     border-color: #0055ff;
     box-shadow: 0 0 20px rgba(0, 85, 255, 0.4), 
                 0 20px 40px -10px rgba(0, 85, 255, 0.95);
-}
+}   
 
 body.angel-mode .service-card:hover .order-link {
     color: #0055ff;
     text-shadow: none;
 }
+/* Angel Mode Overrides for Expanding Projects */
+body.angel-mode .project-list.show {
+    border-top-color: #e5e5e5;
+}
+
+body.angel-mode .empty-msg {
+    color: #0055ff;
+    text-shadow: 0 0 5px rgba(0, 85, 255, 0.3);
+}
+/* Angel Mode: Animated Background */
+body.angel-mode .bg-orbs { background: #f4f7fa; }
+body.angel-mode .orb-1 { background: #0055ff; }
+body.angel-mode .orb-2 { background: #00aaff; }
+body.angel-mode .orb-3 { background: #0022aa; }
+
+/* Angel Mode: Glassmorphism */
+body.angel-mode .sidebar {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+body.angel-mode .hero-header,
+body.angel-mode .service-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Angel Mode: Circling Hover Line */
+body.angel-mode .service-card::before {
+    background: conic-gradient(transparent, transparent, transparent, #0055ff);
+}
+body.angel-mode .service-card::after {
+    background: rgba(255, 255, 255, 0.95);
+}
+body.angel-mode .service-card:hover {
+    box-shadow: 0 20px 40px -10px rgba(0, 85, 255, 0.5);
+}
+/* Angel Mode: Moving Grid */
+body.angel-mode .bg-grid {
+    background-color: #f4f7fa; /* Clean off-white base */
+    background-image: 
+        linear-gradient(to right, rgba(0, 85, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 85, 255, 0.15) 1px, transparent 1px);
+}   

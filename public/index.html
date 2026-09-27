@@ -15,6 +15,17 @@
         <i id="theme-icon" class="fas fa-feather-alt"></i> 
         <span id="theme-text">Angel Mode</span>
     </button>
+<body>
+    <!-- Moving Cyber Grid Background -->
+    <div class="bg-grid"></div>
+
+    <!-- Ultra Cool Floating Background Orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
     <!-- Main Flexbox Container -->
     <div class="portfolio-container">
 
@@ -114,31 +125,46 @@
             <section class="services-section">
                 <h2>My Focus Areas</h2>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <i class="fas fa-code card-icon"></i>
-                        <h3>Web Development</h3>
-                        <p>Building responsive, interactive interfaces using HTML, CSS, and JS with robust Node.js backends.</p>
-                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-laptop-code card-icon"></i>
-                        <h3>Software Dev</h3>
-                        <p>Writing structural logic, modular programs, and efficient computing solutions in C++ and Python.</p>
-                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-microchip card-icon"></i>
-                        <h3>Hardware Diagnostics</h3>
-                        <p>Troubleshooting system boards, testing registry settings, and flashing complex BIOS firmware.</p>
-                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <i class="fas fa-gamepad card-icon"></i>
-                        <h3>Game Design</h3>
-                        <p>Conceptualizing simulator mechanics and interactive kinetic environments within Roblox Studio.</p>
-                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+    <div class="service-card">
+        <i class="fas fa-code card-icon"></i>
+        <h3>Web Development</h3>
+        <p>Building responsive, interactive interfaces using HTML, CSS, and JS with robust Node.js backends.</p>
+        <span class="order-link" onclick="toggleProjects(this)">VIEW PROJECTS <i class="fas fa-arrow-right"></i></span>
+        <div class="project-list">
+            <p class="empty-msg">No Projects yet</p>
+        </div>
+    </div>
+    
+    <div class="service-card">
+        <i class="fas fa-laptop-code card-icon"></i>
+        <h3>Software Dev</h3>
+        <p>Writing structural logic, modular programs, and efficient computing solutions in C++ and Python.</p>
+        <span class="order-link" onclick="toggleProjects(this)">VIEW PROJECTS <i class="fas fa-arrow-right"></i></span>
+        <div class="project-list">
+            <p class="empty-msg">No Projects yet</p>
+        </div>
+    </div>
+    
+    <div class="service-card">
+        <i class="fas fa-microchip card-icon"></i>
+        <h3>Hardware Diagnostics</h3>
+        <p>Troubleshooting system boards, testing registry settings, and flashing complex BIOS firmware.</p>
+        <span class="order-link" onclick="toggleProjects(this)">VIEW PROJECTS <i class="fas fa-arrow-right"></i></span>
+        <div class="project-list">
+            <p class="empty-msg">No Projects yet</p>
+        </div>
+    </div>
+    
+    <div class="service-card">
+        <i class="fas fa-gamepad card-icon"></i>
+        <h3>Game Design</h3>
+        <p>Conceptualizing simulator mechanics and interactive kinetic environments within Roblox Studio.</p>
+        <span class="order-link" onclick="toggleProjects(this)">VIEW PROJECTS <i class="fas fa-arrow-right"></i></span>
+        <div class="project-list">
+            <p class="empty-msg">No Projects yet</p>
+        </div>
+    </div>
+</div>
             </section>
         </main>
     </div>
@@ -170,6 +196,23 @@
             } else {
                 themeText.innerText = "Angel Mode";
                 themeIcon.className = "fas fa-feather-alt"; // Feather icon for Angel
+            }
+        }
+        function toggleProjects(element) {
+            // Check if the one you clicked is already open
+            const isAlreadyOpen = element.classList.contains('open');
+
+            // Find all links and project lists, and close them all
+            const allLinks = document.querySelectorAll('.order-link');
+            const allLists = document.querySelectorAll('.project-list');
+            
+            allLinks.forEach(link => link.classList.remove('open'));
+            allLists.forEach(list => list.classList.remove('show'));
+
+            // If it wasn't already open, open only the one you clicked
+            if (!isAlreadyOpen) {
+                element.classList.add('open');
+                element.nextElementSibling.classList.add('show');
             }
         }
     </script>
