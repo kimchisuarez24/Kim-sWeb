@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kimchi Suarez Portfolio - IT & Web Development</title>
-    <!-- This line links your CSS -->
+    <!-- Dark Theme Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <!-- This line links the FontAwesome icons -->
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<!-- Your <body> code starts here -->
 <body>
 
     <!-- Main Flexbox Container -->
@@ -18,6 +17,7 @@
         <!-- Fixed Left Sidebar -->
         <aside class="sidebar">
             <div class="profile-section">
+                <!-- Circular Profile Image -->
                 <div class="profile-img-container">
                     <img src="pfp1.jpg" alt="Kimchi Suarez" class="profile-img">
                 </div>
@@ -32,15 +32,7 @@
             </div>
 
             <!-- Language Skills -->
-            <div class="skills-container languages" style="justify-content: center;">
-                <div class="skill-group">
-                    <div class="skill-dial" data-value="85">
-                        <span class="skill-percent">85%</span>
-                        <div class="dial-fill"></div>
-                    </div>
-                    <p>English</p>
-                </div>
-            </div>
+            
 
             <!-- Technical Skills -->
             <div class="skills-container technical">
@@ -69,41 +61,41 @@
             <div class="checklist">
                 <ul>
                     <li><i class="fas fa-check"></i> Eager to Learn</li>
-                    <li><i class="fas fa-check"></i> Appoachable</li>
-                    <li><i class="fas fa-check"></i> Able to work under pressure</li>
+                    <li><i class="fas fa-check"></i> Delivering Quality Results</li>
+                    <li><i class="fas fa-check"></i> Approachable</li>
                 </ul>
             </div>
 
-            <!-- Social Icons -->
-            <div class="social-icons">
-                <a href="https://www.facebook.com/share/1H1RiXF2vG/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <!-- Interactive Sliding Contacts (Replaced Social Links) -->
+            <div class="interactive-contacts">
+                <!-- Facebook -->
+                <div class="icon-wrapper" onclick="toggleSlide(this)">
+                    <div class="icon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <span class="slide-text">Kimchi Suarez</span>
+                </div>
+                <!-- Phone -->
+                <div class="icon-wrapper" onclick="toggleSlide(this)">
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <span class="slide-text">09383699609</span>
+                </div>
+                <!-- Email -->
+                <div class="icon-wrapper" onclick="toggleSlide(this)">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <span class="slide-text">kimchisuarez24@gmail.com</span>
+                </div>
             </div>
         </aside>
 
         <!-- Main Content Area -->
         <main class="main-content">
             
-            <!-- Hero Header Section (Background applied via CSS) -->
+            <!-- Minimalist Hero Header Section -->
             <header class="hero-header">
                 <div class="hero-left">
                     <div class="header-dark-panel">
-                        <h1>Discover my<br>Web and Application!</h1>
-                        <p class="code-line"><code>&lt; I build Websites and Applications   . /&gt;</code></p>
-                        
-                        <!-- Contact Button & Sliding Panel -->
-                        <div class="contact-wrapper">
-                            <button class="contact-btn" id="contactBtn">CONTACT ME</button>
-                            <div class="contact-info" id="contactInfo">
-                                <p><i class="fas fa-phone"></i> 09383699609</p>
-                                <p><i class="fas fa-envelope"></i> kimchisuarez24@gmail.com</p>
-                            </div>
-                        </div>
-
+                        <h1>Discover my<br>Creation!</h1>
+                        <p class="code-line"><code>&lt; I build Websites and Applications. /&gt;</code></p>
                     </div>
-                </div>
-                <div class="hero-right">
-                    <!-- Cutout Profile Image -->
-                    <!--img src="cutout.jpg" alt="Profile Cover" class="hero-img"-->
                 </div>
             </header>
 
@@ -111,7 +103,7 @@
             <section class="stats-grid">
                 <div class="stat-card"><h3>1</h3> <p>Years Experience</p></div>
                 <div class="stat-card"><h3>1</h3> <p>Completed Projects</p></div>
-                <div class="stat-card"><h3>2</h3> <p>Honors and Awards</p></div>
+                <div class="stat-card"><h3>2</h3> <p>Achievements and Awards</p></div>
             </section>
 
             <!-- Services Grid -->
@@ -125,33 +117,39 @@
                         <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card">
-            <i class="fas fa-laptop-code card-icon"></i>
-            <h3>Software Dev</h3>
-            <p>Writing structural logic, modular programs, and efficient computing solutions in C++ and Python.</p>
-            <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card">
-            <i class="fas fa-microchip card-icon"></i>
-            <h3>Hardware Diagnostics</h3>
-            <p>Troubleshooting system boards, testing registry settings, and flashing complex BIOS firmware.</p>
-            <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="service-card">
-            <i class="fas fa-gamepad card-icon"></i>
-            <h3>Game Design</h3>
-            <p>Conceptualizing simulator mechanics and interactive kinetic environments within Roblox Studio.</p>
-            <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
-</section>
+                        <i class="fas fa-laptop-code card-icon"></i>
+                        <h3>Software Dev</h3>
+                        <p>Writing structural logic, modular programs, and efficient computing solutions in C++ and Python.</p>
+                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-microchip card-icon"></i>
+                        <h3>Hardware Diagnostics</h3>
+                        <p>Troubleshooting system boards, testing registry settings, and flashing complex BIOS firmware.</p>
+                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-gamepad card-icon"></i>
+                        <h3>Game Design</h3>
+                        <p>Conceptualizing simulator mechanics and interactive kinetic environments within Roblox Studio.</p>
+                        <a href="#" class="order-link">VIEW PROJECTS <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
+    <!-- Script for Sliding Icons -->
     <script>
-        // JavaScript for the sliding animation
-        document.getElementById('contactBtn').addEventListener('click', () => {
-            const infoPanel = document.getElementById('contactInfo');
-            infoPanel.classList.toggle('show');
-        });
+        function toggleSlide(element) {
+            const allIcons = document.querySelectorAll('.icon-wrapper');
+            allIcons.forEach(icon => {
+                if (icon !== element) {
+                    icon.classList.remove('active');
+                }
+            });
+            element.classList.toggle('active');
+        }
     </script>
 </body>
+</html>
