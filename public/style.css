@@ -843,4 +843,136 @@ h1, h2, h3 {
 
 @media screen and (max-width: 480px) {
     .stats-grid { grid-template-columns: 1fr; }
-}   
+}
+/* =========================================
+   Demon / Angel Mode Toggle Button
+   ========================================= */
+.theme-toggle {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    background: #8B0D1A; /* Demon Red */
+    color: #F5F2ED;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(139, 13, 26, 0.6);
+    transition: all 0.4s ease;
+}
+
+/* Update the Toggle Button Glow */
+body.angel-mode .theme-toggle {
+    background: #0055ff; 
+    box-shadow: 0 0 15px rgba(0, 85, 255, 0.7), 
+                0 10px 25px rgba(0, 85, 255, 0.5);
+}
+
+/* =========================================
+   Angel Mode (Light & Electric Blue)
+   ========================================= */
+/* Backgrounds & Text */
+body.angel-mode, 
+body.angel-mode .main-content {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+body.angel-mode .sidebar {
+    background-color: #f8f9fa;
+    border-color: #e5e5e5;
+}
+
+body.angel-mode h1, 
+body.angel-mode h2, 
+body.angel-mode h3 {
+    color: #1a1a1a;
+}
+
+/* Subtext & Muted colors */
+body.angel-mode .profile-titles,
+body.angel-mode .stat-card p,
+body.angel-mode .service-card p,
+body.angel-mode .checklist li,
+body.angel-mode .icon-wrapper .slide-text {
+    color: #666666;
+}
+
+/* Panels & Cards */
+body.angel-mode .hero-header,
+body.angel-mode .service-card,
+body.angel-mode .icon-wrapper {
+    background-color: #ffffff;
+    border-color: #e5e5e5;
+}
+
+/* Angel Blue Accents & Glows */
+body.angel-mode .profile-section h2,
+body.angel-mode .info-details span,
+body.angel-mode .code-line code,
+body.angel-mode .stat-card h3,
+body.angel-mode .service-card .card-icon,
+body.angel-mode .checklist li i {
+    color: #0055ff;
+    text-shadow: 0 0 5px rgba(0, 85, 255, 0.3);
+}
+
+/* Dials and Bars */
+body.angel-mode .skill-dial::before,
+body.angel-mode .bar-bg {
+    border-color: #e5e5e5;
+    background-color: #e5e5e5;
+}
+
+body.angel-mode .skill-dial[data-value="85"]::after {
+    border-color: #0055ff;
+}
+
+body.angel-mode .bar-fill {
+    background-color: #0055ff;
+    box-shadow: 0 0 12px rgba(0, 85, 255, 0.8), 
+                0 0 25px rgba(0, 85, 255, 0.5);
+}
+
+body.angel-mode .skill-percent,
+body.angel-mode .linear-skill p {
+    color: #1a1a1a;
+}
+
+/* Interactive Hover States (Angel Mode) */
+body.angel-mode .icon-wrapper.active {
+    background-color: #0055ff;
+    color: #ffffff;
+    border-color: #0055ff;
+    box-shadow: 0 0 15px rgba(0, 85, 255, 0.5), 
+                0 15px 30px -5px rgba(0, 85, 255, 0.9);
+}
+
+body.angel-mode .icon-wrapper.active .slide-text {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+body.angel-mode .icon-wrapper:not(.active):hover {
+    border-color: #0055ff;
+    color: #0055ff;
+    box-shadow: 0 0 15px rgba(0, 85, 255, 0.4), 
+                0 12px 25px -5px rgba(0, 85, 255, 0.8);
+}
+
+body.angel-mode .service-card:hover {
+    border-color: #0055ff;
+    box-shadow: 0 0 20px rgba(0, 85, 255, 0.4), 
+                0 20px 40px -10px rgba(0, 85, 255, 0.95);
+}
+
+body.angel-mode .service-card:hover .order-link {
+    color: #0055ff;
+    text-shadow: none;
+}

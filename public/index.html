@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
+    <!-- Demon/Angel Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i id="theme-icon" class="fas fa-feather-alt"></i> 
+        <span id="theme-text">Angel Mode</span>
+    </button>
     <!-- Main Flexbox Container -->
     <div class="portfolio-container">
 
@@ -139,7 +143,7 @@
         </main>
     </div>
 
-    <!-- Script for Sliding Icons -->
+    <!-- Script for Sliding Icons & Theme Toggle -->
     <script>
         function toggleSlide(element) {
             const allIcons = document.querySelectorAll('.icon-wrapper');
@@ -149,6 +153,24 @@
                 }
             });
             element.classList.toggle('active');
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeText = document.getElementById('theme-text');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            // Toggle the 'angel-mode' class on the body
+            body.classList.toggle('angel-mode');
+            
+            // Check which mode is active and update the button text/icon
+            if (body.classList.contains('angel-mode')) {
+                themeText.innerText = "Demon Mode";
+                themeIcon.className = "fas fa-fire"; // Fire icon for Demon return
+            } else {
+                themeText.innerText = "Angel Mode";
+                themeIcon.className = "fas fa-feather-alt"; // Feather icon for Angel
+            }
         }
     </script>
 </body>
